@@ -7,3 +7,10 @@
     text-align: center;
     line-height: 80px;
 }
+
+.selfMenuListWrapper {
+    padding: 0 !important;
+    height: 100vh;
+    overflow: hidden;
+    border-right: 1px dashed #cccccc;
+}
