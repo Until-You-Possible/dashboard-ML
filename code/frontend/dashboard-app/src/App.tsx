@@ -1,5 +1,5 @@
-import React from 'react';
-import './css/App.css';
+import React, {useEffect, useRef} from 'react';
+import "./css/App.css"
 import Home from "./view/Home/Index";
 import { Routes, Route, Navigate } from "react-router-dom";
 import Grid from "@mui/material/Unstable_Grid2";
@@ -16,18 +16,18 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 function App() {
-  return (
 
+  return (
       <div className="HomeContainer">
           <Grid container direction="row">
-              <Grid className="menuListWrapper" xs={2} >
-                  <Item className="menuListGridItem">
+              <Grid xs={2} >
+                  <Item sx={{ boxShadow: 'none' }}>
                       <MenuSet />
                   </Item>
               </Grid>
               <Grid xs={10} minWidth={600}  >
-                  <ContentHeader />
-                  <Item>
+                  <ContentHeader  />
+                  <Item sx={{ boxShadow: 'none', height: 'calc(100vh - 66px)', overflow: 'scroll' }}>
                       <Routes>
                           <Route path="/" element={<Navigate to="/home" />} />
                           <Route path="/home" element={<Home />} />

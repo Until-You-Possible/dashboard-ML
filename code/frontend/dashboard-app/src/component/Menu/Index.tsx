@@ -12,7 +12,7 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 export  default function MenuSet() {
     return (
-        <Paper className="menuPaperContainer" sx={{ width: 320, maxWidth: '100%' }}>
+        <Paper sx={{ width: 320, maxWidth: '100%', boxShadow: 'none' }}>
             <MenuList className="selfMenuListWrapper">
                 <MenuItem
                     sx={{

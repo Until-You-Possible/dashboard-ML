@@ -1,12 +1,14 @@
 import * as React from 'react';
-import "./Index.css"
-
-
 
 function Home() {
+    const elements = ['Element 1', 'Element 2', 'Element 3'];
     return (
         <div className="HomeContainer">
-            this is home/dashboard
+            {
+                Array(100).fill("elements").map((element, index) => (
+                        <div key={index}>{element}</div>
+                    ))
+            }
         </div>
     );
 }

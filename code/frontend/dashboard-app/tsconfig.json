@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "types": [
+      "@mui/styles"
+    ],
     "lib": [
       "dom",
       "dom.iterable",
