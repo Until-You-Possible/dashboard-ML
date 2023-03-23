@@ -12,48 +12,49 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 export  default function MenuSet() {
     return (
-        <Paper sx={{ width: 320, maxWidth: '100%', boxShadow: 'none' }}>
-            <MenuList className="selfMenuListWrapper">
-                <MenuItem
-                    sx={{
-                        justifyContent: 'center',
-                        textAlign: 'center'
-                    }}
-                    style={{ height: '80px' }}>
-                    <ListItemText>MACHINE LEARNING</ListItemText>
-                </MenuItem>
+        <Paper className="PaperMenuContainer">
+            e123
+            {/*<MenuList className="selfMenuListWrapper">*/}
+            {/*    <MenuItem*/}
+            {/*        sx={{*/}
+            {/*            justifyContent: 'center',*/}
+            {/*            textAlign: 'center'*/}
+            {/*        }}*/}
+            {/*        style={{ height: '80px' }}>*/}
+            {/*        <ListItemText>MACHINE LEARNING</ListItemText>*/}
+            {/*    </MenuItem>*/}
 
-                <MenuItem style={{ height: '60px' }}>
-                    <ListItemIcon>
-                        <AccountBalanceIcon />
-                    </ListItemIcon>
-                    <ListItemText>Dashboard</ListItemText>
-                    <ListItemIcon>
-                        <KeyboardArrowRightIcon />
-                    </ListItemIcon>
-                </MenuItem>
+            {/*    <MenuItem style={{ height: '60px' }}>*/}
+            {/*        <ListItemIcon>*/}
+            {/*            <AccountBalanceIcon />*/}
+            {/*        </ListItemIcon>*/}
+            {/*        <ListItemText>Dashboard</ListItemText>*/}
+            {/*        <ListItemIcon>*/}
+            {/*            <KeyboardArrowRightIcon />*/}
+            {/*        </ListItemIcon>*/}
+            {/*    </MenuItem>*/}
 
-                <MenuItem  style={{ height: '60px' }}>
-                    <ListItemIcon>
-                        <FunctionsIcon />
-                    </ListItemIcon>
-                    <ListItemText>Feature Engine</ListItemText>
-                    <ListItemIcon>
-                        <KeyboardArrowRightIcon />
-                    </ListItemIcon>
-                </MenuItem>
+            {/*    <MenuItem  style={{ height: '60px' }}>*/}
+            {/*        <ListItemIcon>*/}
+            {/*            <FunctionsIcon />*/}
+            {/*        </ListItemIcon>*/}
+            {/*        <ListItemText>Feature Engine</ListItemText>*/}
+            {/*        <ListItemIcon>*/}
+            {/*            <KeyboardArrowRightIcon />*/}
+            {/*        </ListItemIcon>*/}
+            {/*    </MenuItem>*/}
 
-                <MenuItem  style={{ height: '60px' }}>
-                    <ListItemIcon>
-                        <CalculateIcon />
-                    </ListItemIcon>
-                    <ListItemText>Matlab Line</ListItemText>
-                    <ListItemIcon>
-                        <KeyboardArrowRightIcon />
-                    </ListItemIcon>
-                </MenuItem>
+            {/*    <MenuItem  style={{ height: '60px' }}>*/}
+            {/*        <ListItemIcon>*/}
+            {/*            <CalculateIcon />*/}
+            {/*        </ListItemIcon>*/}
+            {/*        <ListItemText>Matlab Line</ListItemText>*/}
+            {/*        <ListItemIcon>*/}
+            {/*            <KeyboardArrowRightIcon />*/}
+            {/*        </ListItemIcon>*/}
+            {/*    </MenuItem>*/}
 
-            </MenuList>
+            {/*</MenuList>*/}
         </Paper>
     )
 }

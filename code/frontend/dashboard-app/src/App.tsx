@@ -19,23 +19,40 @@ function App() {
 
   return (
       <div className="HomeContainer">
-          <Grid container direction="row">
-              <Grid xs={2} >
-                  <Item sx={{ boxShadow: 'none' }}>
-                      <MenuSet />
-                  </Item>
-              </Grid>
-              <Grid xs={10} minWidth={600}  >
-                  <ContentHeader  />
-                  <Item sx={{ boxShadow: 'none', height: 'calc(100vh - 66px)', overflow: 'scroll' }}>
-                      <Routes>
-                          <Route path="/" element={<Navigate to="/home" />} />
-                          <Route path="/home" element={<Home />} />
-                          <Route path="/feature" element={<FeatureEngine />} />
-                      </Routes>
-                  </Item>
-              </Grid>
-          </Grid>
+          {/*<Grid container direction="row">*/}
+          {/*    <Grid xs={2} >*/}
+          {/*        <Item sx={{ boxShadow: 'none' }}>*/}
+          {/*            <MenuSet />*/}
+          {/*        </Item>*/}
+          {/*    </Grid>*/}
+          {/*    <Grid xs={10} minWidth={600}  >*/}
+          {/*        <ContentHeader  />*/}
+          {/*        <Item sx={{ boxShadow: 'none', height: 'calc(100vh - 66px)', overflow: 'scroll' }}>*/}
+          {/*            <Routes>*/}
+          {/*                <Route path="/" element={<Navigate to="/home" />} />*/}
+          {/*                <Route path="/home" element={<Home />} />*/}
+          {/*                <Route path="/feature" element={<FeatureEngine />} />*/}
+          {/*            </Routes>*/}
+          {/*        </Item>*/}
+          {/*    </Grid>*/}
+          {/*</Grid>*/}
+          <nav className="navContainer">
+              3454
+              {/*<MenuSet />*/}
+          </nav>
+          <header className="headerContainer headerContainerWidth">
+              <ContentHeader  />
+          </header>
+          <main className="mainContainer">
+              <div className="mainInnerContainer">
+                  <Routes>
+                      <Route path="/" element={<Navigate to="/home" />} />
+                      <Route path="/home" element={<Home />} />
+                      <Route path="/feature" element={<FeatureEngine />} />
+                  </Routes>
+              </div>
+
+          </main>
       </div>
   );
 }
