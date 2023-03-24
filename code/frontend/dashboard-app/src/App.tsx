@@ -18,7 +18,7 @@ const Item = styled(Paper)(({ theme }) => ({
 function App() {
 
   return (
-      <div className="HomeContainer">
+      <div className="AppContainer">
           {/*<Grid container direction="row">*/}
           {/*    <Grid xs={2} >*/}
           {/*        <Item sx={{ boxShadow: 'none' }}>*/}
@@ -38,7 +38,6 @@ function App() {
           {/*</Grid>*/}
           <nav className="navContainer">
               3454
-              {/*<MenuSet />*/}
           </nav>
           <header className="headerContainer headerContainerWidth">
               <ContentHeader  />
@@ -51,7 +50,6 @@ function App() {
                       <Route path="/feature" element={<FeatureEngine />} />
                   </Routes>
               </div>
-
           </main>
       </div>
   );

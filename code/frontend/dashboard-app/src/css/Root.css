@@ -1,0 +1,32 @@
+html:root {
+    --docsearch-primary-color: #007FFF;
+    --docsearch-text-color: #1A2027;
+    --docsearch-muted-color: #6F7E8C;
+    --docsearch-searchbox-shadow: 0;
+    --docsearch-hit-shadow: 0;
+    --docsearch-footer-shadow: 0;
+    --docsearch-spacing: 12px;
+    --docsearch-hit-active-color: #0072E5;
+    --docsearch-logo-color: #6F7E8C;
+    --docsearch-searchbox-focus-background: unset;
+    --docsearch-footer-background: unset;
+    --docsearch-modal-background: #fff;
+}
+
+:root {
+    --MuiDocs-navDrawer-width: 300px;
+    --MuiDocs-header-height: 64px;
+}
+
+html  {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+    -webkit-text-size-adjust: 100%;
+    -webkit-print-color-scheme: light;
+    color-scheme: light;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}

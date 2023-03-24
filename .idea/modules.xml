@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/dashboard-ML.iml" filepath="$PROJECT_DIR$/.idea/dashboard-ML.iml" />
+      <module fileurl="file://$PROJECT_DIR$/code/backend/dashboardML.iml" filepath="$PROJECT_DIR$/code/backend/dashboardML.iml" />
     </modules>
   </component>
 </project>

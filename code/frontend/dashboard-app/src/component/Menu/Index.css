@@ -2,22 +2,22 @@
     --MuiDocs-navDrawer-width: 300px;
 }
 
-.menuListWrapper {
-    height: 100vh;
-    background: #ccc;
-}
-.menuListTopContent {
-    height: 80px;
-    text-align: center;
-    line-height: 80px;
-}
+/*.menuListWrapper {*/
+/*    height: 100vh;*/
+/*    background: #ccc;*/
+/*}*/
+/*.menuListTopContent {*/
+/*    height: 80px;*/
+/*    text-align: center;*/
+/*    line-height: 80px;*/
+/*}*/
 
-.selfMenuListWrapper {
-    padding: 0 !important;
-    height: 100vh;
-    overflow: hidden;
-    border-right: 1px dashed #cccccc;
-}
+/*.selfMenuListWrapper {*/
+/*    padding: 0 !important;*/
+/*    height: 100vh;*/
+/*    overflow: hidden;*/
+/*    border-right: 1px dashed #cccccc;*/
+/*}*/
 
 .PaperMenuContainer{
     width: var(--MuiDocs-navDrawer-width);
