@@ -6,7 +6,6 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 import SearchIcon from '@mui/icons-material/Search';
 
-
 function ContentHeader() {
 
     return (
