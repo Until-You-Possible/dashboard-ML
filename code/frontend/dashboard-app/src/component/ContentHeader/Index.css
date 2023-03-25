@@ -1,12 +1,22 @@
 .ContentHeaderContainer  {
     position: relative;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-align-items: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
     min-height: 48px;
+    justify-content: flex-end;
+}
+
+.ContentHeaderContainer .icon-button-outline {
+    color: #007FFF;
+    border: 1px solid #E0E3E7;
+    margin-left: 10px;
+    border-radius: 12px;
+    width: 36px;
+    height: 36px;
+}
+
+.search-button-wrapper {
+    text-transform: none !important;
+    border-radius: 12px !important;
+    background: rgb(243, 246, 249) !important;
 }

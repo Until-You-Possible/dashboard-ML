@@ -17,7 +17,6 @@ body {
 
 .navContainer {
   width: var(--MuiDocs-navDrawer-width);
-  background: #cccccc;
 }
 
 .navContainer .navListWrap{
@@ -27,6 +26,7 @@ body {
   height: 100vh;
   overflow-y: scroll;
   width: var(--MuiDocs-navDrawer-width);
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
 }
 .headerContainer {
   width: calc(100% - var(--MuiDocs-navDrawer-width));
@@ -53,7 +53,8 @@ body {
 }
 
 .mainContainer {
-  background: #007FFF;
+  /*background: #007FFF;*/
   padding-top: calc(var(--MuiDocs-header-height) + 36px);
+  flex: 1
 
 }
