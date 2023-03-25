@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 function Home() {
-    const elements = ['Element 1', 'Element 2', 'Element 3'];
     return (
         <div className="HomeContainer">
             {
