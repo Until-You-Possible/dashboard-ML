@@ -17,6 +17,7 @@ body {
 
 .navContainer {
   width: var(--MuiDocs-navDrawer-width);
+  height: 100vh;
 }
 
 .navContainer .navListWrap{
@@ -54,7 +55,19 @@ body {
 
 .mainContainer {
   /*background: #007FFF;*/
-  padding-top: calc(var(--MuiDocs-header-height) + 36px);
+  /*padding-top: calc(var(--MuiDocs-header-height) + 36px);*/
   flex: 1
+}
 
+.mainInnerContainer {
+  width: 100%;
+  margin-left: auto;
+  box-sizing: border-box;
+  margin-right: auto;
+  display: block;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: calc(var(--MuiDocs-header-height) + 36px);
+  max-width: 105ch;
+  position: relative;
 }

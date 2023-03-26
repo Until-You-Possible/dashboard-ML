@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-function Home() {
+function Overview() {
     return (
         <div className="HomeContainer">
             {
@@ -12,4 +12,4 @@ function Home() {
     );
 }
 
-export default Home;
+export default Overview;
