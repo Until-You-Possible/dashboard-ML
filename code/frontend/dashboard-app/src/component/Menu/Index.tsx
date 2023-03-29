@@ -14,7 +14,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 interface menuItemType {
     name: string,
-    route: string,
+    route?: string,
     index: number,
     icon: ReactElement,
     collapse: Array<any>
@@ -30,7 +30,6 @@ export  default function MenuSet() {
     const menuArray: menuItemType[] = [
         {
             name: "Overview",
-            route: "/overview",
             index: 0,
             icon: <ArticleIcon style={{color: "#007FFF"}} fontSize="small" />,
             collapse: [
@@ -48,7 +47,6 @@ export  default function MenuSet() {
         },
         {
             name: "What's ML?",
-            route: "/ml",
             index: 1,
             icon: <ContentCopy style={{color: "#007FFF"}} fontSize="small" />,
             collapse: []
@@ -56,23 +54,30 @@ export  default function MenuSet() {
     ]
 
     // navTo current route
+    const navToLink = (innerItem: any) => {
+        navigate(innerItem.route);
+    }
     const navTo = (item: menuItemType) => {
-        navigate(item.route);
         setSelectedMenuIndex(item.index)
     }
 
-    const [openCollapse, setOpenCollapse] = React.useState<String>("");
+    const [openCollapse, setOpenCollapse] = React.useState<boolean | undefined>(false);
+
+    const [currentCollapseName, setCurrentCollapseName] = React.useState<string>("")
 
     const handleClickItem = (item: menuItemType) => {
-        if (openCollapse === item.name) {
-            setOpenCollapse("")
-        } else {
-            setOpenCollapse(item.name);
+        if (item.name !== currentCollapseName && !openCollapse) {
+            setOpenCollapse(true)
+            setCurrentCollapseName(item.name);
+        }
+        if (item.name === currentCollapseName && openCollapse) {
+            setOpenCollapse(false)
+            setCurrentCollapseName("");
         }
     };
 
     const showCorrectArrow = (item: menuItemType) => {
-        if (openCollapse === item.name) {
+        if (currentCollapseName === item.name) {
             return <KeyboardArrowDownIcon style={{color: "#007FFF"}} fontSize="small"/>
         } else {
             return <KeyboardArrowRightIcon style={{color: "#007FFF"}} fontSize="small"/>
@@ -82,12 +87,13 @@ export  default function MenuSet() {
 
     const renderCollapse = (item: menuItemType) => {
         return <>
-            <Collapse in={openCollapse === item.name} timeout="auto" unmountOnExit>
+            <Collapse in={(currentCollapseName === item.name) && openCollapse} timeout="auto" unmountOnExit>
                 <List  component="div" disablePadding>
                     {
                         item.collapse.map((innerItem, innerIndex) => {
                             return (
-                                <ListItemButton key={innerIndex} sx={{ pl: 4 }}>
+                                <ListItemButton onClick={() => navToLink(innerItem)}
+                                                key={innerIndex} sx={{ pl: 4 }}>
                                     <ListItemIcon  sx={{minWidth: '40px'}}>
                                         {innerItem.icon}
                                     </ListItemIcon>
