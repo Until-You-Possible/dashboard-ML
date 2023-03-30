@@ -1,0 +1,27 @@
+.definitionAI {
+    text-align: justify;
+    line-height: 1.5;
+    font-size: 18px;
+    text-indent: 2rem;
+    font-weight: bold;
+    padding-bottom: 100px;
+}
+
+.mainTitleH {
+    width: 100%;
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
+.mainSubTitleH {
+    width: 100%;
+    text-align: left;
+}
+
+.benefitsIA p {
+    text-indent: -1.05rem;
+}
+
+.typeOfAI {
+    padding-bottom: 80px;
+}

@@ -54,8 +54,6 @@ body {
 }
 
 .mainContainer {
-  /*background: #007FFF;*/
-  /*padding-top: calc(var(--MuiDocs-header-height) + 36px);*/
   flex: 1
 }
 
@@ -65,9 +63,8 @@ body {
   box-sizing: border-box;
   margin-right: auto;
   display: block;
-  padding-left: 16px;
-  padding-right: 16px;
   padding-top: calc(var(--MuiDocs-header-height) + 36px);
   max-width: 105ch;
   position: relative;
+  padding-bottom: 5rem;
 }

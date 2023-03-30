@@ -25,7 +25,6 @@ export  default function MenuSet() {
     let navigate = useNavigate();
 
     const [selectedMenuIndex, setSelectedMenuIndex] = React.useState<number>(0);
-    // const [currentCollapseName, setCurrentCollapseName] = React.useState<string>("");
 
     const menuArray: menuItemType[] = [
         {
@@ -54,11 +53,9 @@ export  default function MenuSet() {
     ]
 
     // navTo current route
-    const navToLink = (innerItem: any) => {
+    const navToLink = (innerItem: any, innerIndex: number) => {
         navigate(innerItem.route);
-    }
-    const navTo = (item: menuItemType) => {
-        setSelectedMenuIndex(item.index)
+        setSelectedMenuIndex(innerIndex)
     }
 
     const [openCollapse, setOpenCollapse] = React.useState<boolean | undefined>(false);
@@ -92,7 +89,8 @@ export  default function MenuSet() {
                     {
                         item.collapse.map((innerItem, innerIndex) => {
                             return (
-                                <ListItemButton onClick={() => navToLink(innerItem)}
+                                <ListItemButton onClick={() => navToLink(innerItem, innerIndex)}
+                                                selected={selectedMenuIndex === innerIndex}
                                                 key={innerIndex} sx={{ pl: 4 }}>
                                     <ListItemIcon  sx={{minWidth: '40px'}}>
                                         {innerItem.icon}
