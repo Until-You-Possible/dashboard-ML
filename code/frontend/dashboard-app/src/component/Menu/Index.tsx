@@ -17,6 +17,7 @@ interface menuItemType {
     route?: string,
     index: number,
     icon: ReactElement,
+    isCollapse?: boolean,
     collapse: Array<any>
 }
 
@@ -33,22 +34,33 @@ export  default function MenuSet() {
             icon: <ArticleIcon style={{color: "#007FFF"}} fontSize="small" />,
             collapse: [
                 {
-                    name: "what is the AI?",
+                    name: "What is the AI?",
                     route: "/what_is_the_ai",
                     icon: <PsychologyIcon style={{color: "#007FFF"}} fontSize="small" />,
                 },
                 {
-                    name: "what is the ML?",
+                    name: "What is the ML?",
                     route: "/what_is_the_ml",
                     icon: <PsychologyAltIcon style={{color: "#007FFF"}} fontSize="small" />,
                 }
             ]
         },
         {
-            name: "What's ML?",
+            name: "Get Started",
             index: 1,
             icon: <ContentCopy style={{color: "#007FFF"}} fontSize="small" />,
-            collapse: []
+            collapse: [
+                {
+                    route: "/how_to_start",
+                    name: "How to start",
+                    icon: <PsychologyAltIcon style={{color: "#007FFF"}} fontSize="small" />,
+                },
+                {
+                    route: "/simple_data",
+                    name: "Simple data",
+                    icon: <PsychologyAltIcon style={{color: "#007FFF"}} fontSize="small" />,
+                }
+            ]
         }
     ]
 
@@ -58,23 +70,20 @@ export  default function MenuSet() {
         setSelectedMenuIndex(innerIndex)
     }
 
-    const [openCollapse, setOpenCollapse] = React.useState<boolean | undefined>(false);
-
-    const [currentCollapseName, setCurrentCollapseName] = React.useState<string>("")
+    const [menuArrayState, setMenuArrayState] = React.useState<menuItemType[]>(menuArray)
 
     const handleClickItem = (item: menuItemType) => {
-        if (item.name !== currentCollapseName && !openCollapse) {
-            setOpenCollapse(true)
-            setCurrentCollapseName(item.name);
-        }
-        if (item.name === currentCollapseName && openCollapse) {
-            setOpenCollapse(false)
-            setCurrentCollapseName("");
-        }
+        const newMenuArray = menuArrayState.map(inItem => {
+            if (item.name === inItem.name) {
+                item.isCollapse = !item.isCollapse;
+            }
+            return inItem;
+        });
+        setMenuArrayState(newMenuArray);
     };
 
     const showCorrectArrow = (item: menuItemType) => {
-        if (currentCollapseName === item.name) {
+        if (item.isCollapse) {
             return <KeyboardArrowDownIcon style={{color: "#007FFF"}} fontSize="small"/>
         } else {
             return <KeyboardArrowRightIcon style={{color: "#007FFF"}} fontSize="small"/>
@@ -84,7 +93,8 @@ export  default function MenuSet() {
 
     const renderCollapse = (item: menuItemType) => {
         return <>
-            <Collapse in={(currentCollapseName === item.name) && openCollapse} timeout="auto" unmountOnExit>
+            <Collapse in={item.isCollapse} timeout="auto" unmountOnExit>
+                <div>{item.isCollapse}</div>
                 <List  component="div" disablePadding>
                     {
                         item.collapse.map((innerItem, innerIndex) => {
@@ -117,7 +127,7 @@ export  default function MenuSet() {
             <div className="menu-wrapper">
                 <List>
                     {
-                        menuArray.map((item, index) => {
+                        menuArrayState.map((item, index) => {
                             return (
                                 <div key={index}>
                                     <ListItemButton
@@ -133,6 +143,7 @@ export  default function MenuSet() {
                                             showCorrectArrow(item)
                                         }
                                     </ListItemButton>
+                                    <div>{item.isCollapse}</div>
                                     {
                                         item.collapse.length > 0 ? renderCollapse(item) : ""
                                     }
