@@ -56,8 +56,8 @@ export  default function MenuSet() {
                     icon: <PsychologyAltIcon style={{color: "#007FFF"}} fontSize="small" />,
                 },
                 {
-                    route: "/simple_data",
-                    name: "Simple data",
+                    route: "/iris_data",
+                    name: "iris data",
                     icon: <PsychologyAltIcon style={{color: "#007FFF"}} fontSize="small" />,
                 }
             ]

@@ -5,8 +5,8 @@ import MenuSet from "./component/Menu/Index";
 import ContentHeader from "./component/ContentHeader/Index";
 import WhatIsAI from "./view/WhatIsAI/Index";
 import WhatIsML from "./view/WhatIsML/Index";
-import GetStart from "./view/GetStart/Index";
 import HowToStart from "./view/HowToStart/Index";
+import IrisData from "./view/IrisData/Index";
 
 function App() {
 
@@ -26,8 +26,8 @@ function App() {
                       <Route path="/" element={<Navigate to="/what_is_the_ai" />} />
                       <Route path="/what_is_the_ai" element={<WhatIsAI />} />
                       <Route path="/what_is_the_ml" element={<WhatIsML />} />
-                      {/*<Route path="/get_start" element={<GetStart />} />*/}
-                      <Route path="/how-to-start" element={<HowToStart />} />
+                      <Route path="/how_to_start" element={<HowToStart />} />
+                      <Route path="/iris_data" element={<IrisData />} />
                   </Routes>
               </div>
           </main>
