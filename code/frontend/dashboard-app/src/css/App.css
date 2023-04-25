@@ -64,7 +64,7 @@ body {
   margin-right: auto;
   display: block;
   padding-top: calc(var(--MuiDocs-header-height) + 36px);
-  max-width: 105ch;
+  max-width: 116ch;
   position: relative;
   padding-bottom: 5rem;
 }

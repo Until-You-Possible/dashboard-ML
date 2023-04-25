@@ -57,7 +57,7 @@ export  default function MenuSet() {
                 },
                 {
                     route: "/iris_data",
-                    name: "iris data",
+                    name: "Iris data",
                     icon: <PsychologyAltIcon style={{color: "#007FFF"}} fontSize="small" />,
                 }
             ]
