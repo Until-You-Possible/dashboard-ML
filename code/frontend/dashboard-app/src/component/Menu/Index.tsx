@@ -2,83 +2,77 @@ import * as React from "react";
 import "./Index.css"
 import { Collapse, Divider,
     List, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
-import { ContentCopy } from "@mui/icons-material";
-import ArticleIcon from '@mui/icons-material/Article';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { useNavigate } from 'react-router-dom';
 import { ReactElement } from "react";
-import PsychologyIcon from '@mui/icons-material/Psychology';
-import PsychologyAltIcon from '@mui/icons-material/PsychologyAlt';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import DevicesFoldIcon from '@mui/icons-material/DevicesFold';
 
 
 interface menuItemType {
     name: string,
     route?: string,
-    index: number,
     icon: ReactElement,
-    isCollapse?: boolean,
+    isCollapse?: boolean | undefined,
     collapse: Array<any>
+}
+
+interface selectedItemType {
+    [key: string]: number
 }
 
 export  default function MenuSet() {
 
     let navigate = useNavigate();
 
-    const [selectedMenuIndex, setSelectedMenuIndex] = React.useState<number>(0);
+    const [selectedMenuIndex, setSelectedMenuIndex] = React.useState<selectedItemType>({});
 
     const menuArray: menuItemType[] = [
         {
             name: "Overview",
-            index: 0,
-            icon: <ArticleIcon style={{color: "#007FFF"}} fontSize="small" />,
+            icon: <DashboardIcon style={{color: "#007FFF"}} fontSize="small" />,
             collapse: [
                 {
-                    name: "What is the AI?",
-                    route: "/what_is_the_ai",
-                    icon: <PsychologyIcon style={{color: "#007FFF"}} fontSize="small" />,
+                    name: "what is the AI?",
+                    route: "/what_is_the_ai"
                 },
                 {
-                    name: "What is the ML?",
-                    route: "/what_is_the_ml",
-                    icon: <PsychologyAltIcon style={{color: "#007FFF"}} fontSize="small" />,
+                    name: "what is the ML?",
+                    route: "/what_is_the_ml"
                 }
             ]
         },
         {
             name: "Get Started",
-            index: 1,
-            icon: <ContentCopy style={{color: "#007FFF"}} fontSize="small" />,
+            icon: <DevicesFoldIcon style={{color: "#007FFF"}} fontSize="small" />,
             collapse: [
                 {
                     route: "/how_to_start",
-                    name: "How to start",
-                    icon: <PsychologyAltIcon style={{color: "#007FFF"}} fontSize="small" />,
+                    name: "how to start"
                 },
                 {
                     route: "/iris_data",
-                    name: "Iris data",
-                    icon: <PsychologyAltIcon style={{color: "#007FFF"}} fontSize="small" />,
+                    name: "iris data"
                 }
             ]
         }
     ]
 
     // navTo current route
-    const navToLink = (innerItem: any, innerIndex: number) => {
+    const navToLink = (index: number, innerItem: any) => {
         navigate(innerItem.route);
-        setSelectedMenuIndex(innerIndex)
+        setSelectedMenuIndex({
+            [innerItem.name]: index
+        });
     }
 
     const [menuArrayState, setMenuArrayState] = React.useState<menuItemType[]>(menuArray)
 
     const handleClickItem = (item: menuItemType) => {
         const newMenuArray = menuArrayState.map(inItem => {
-            if (item.name === inItem.name) {
-                item.isCollapse = !item.isCollapse;
-            }
-            return inItem;
-        });
+            return inItem.name === item.name ? { ...inItem, isCollapse: !inItem.isCollapse } : inItem;
+        })
         setMenuArrayState(newMenuArray);
     };
 
@@ -93,16 +87,17 @@ export  default function MenuSet() {
 
     const renderCollapse = (item: menuItemType) => {
         return <>
-            <Collapse in={item.isCollapse} timeout="auto" unmountOnExit>
+            <Collapse in={Boolean(item.isCollapse)} timeout="auto" unmountOnExit>
                 <div>{item.isCollapse}</div>
                 <List  component="div" disablePadding>
                     {
                         item.collapse.map((innerItem, innerIndex) => {
                             return (
-                                <ListItemButton onClick={() => navToLink(innerItem, innerIndex)}
-                                                selected={selectedMenuIndex === innerIndex}
-                                                key={innerIndex} sx={{ pl: 4 }}>
-                                    <ListItemIcon  sx={{minWidth: '40px'}}>
+                                <ListItemButton
+                                    onClick={() => navToLink(innerIndex, innerItem)}
+                                    selected={selectedMenuIndex[innerItem.name] === innerIndex}
+                                    key={innerIndex} sx={{ pl: 4, height: '30px' }}>
+                                    <ListItemIcon  sx={{minWidth: '26px'}}>
                                         {innerItem.icon}
                                     </ListItemIcon>
                                     <ListItemText>
@@ -136,7 +131,7 @@ export  default function MenuSet() {
                                         <ListItemIcon sx={{minWidth: '40px'}}>
                                             {item.icon}
                                         </ListItemIcon>
-                                        <ListItemText>
+                                        <ListItemText className="mainMenuText">
                                             {item.name}
                                         </ListItemText>
                                         {

@@ -1,10 +1,8 @@
 import * as React from 'react';
-import {Paper, Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow} from '@mui/material';
+import {Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from '@mui/material';
 
 // import the data of iris
 import irisData from "../../temporaryData/iris.json";
-
-console.log("iris data", irisData);
 
 function createData(
     sepal_length : number,
@@ -23,21 +21,9 @@ const rows = irisData.map((o: { petal_width: number; petal_length: number; sepal
 
 function IrisData() {
 
-    const [page, setPage] = React.useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
-    const handleChangePage = (event: unknown, newPage: number) => {
-        setPage(newPage);
-    };
-
-    const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setRowsPerPage(+event.target.value);
-        setPage(0);
-    };
-
     return (
         <div className="IrisDataContainer">
-            <TableContainer sx={{ maxHeight: 740 }} component={Paper}>
+            <TableContainer component={Paper}>
                 <Table stickyHeader aria-label="sticky table" sx={{ minWidth: 650 }}>
                     <TableHead>
                         <TableRow>
@@ -65,15 +51,6 @@ function IrisData() {
                     </TableBody>
                 </Table>
             </TableContainer>
-            <TablePagination
-                rowsPerPageOptions={[10, 25, 100]}
-                component="div"
-                count={rows.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                onPageChange={handleChangePage}
-                onRowsPerPageChange={handleChangeRowsPerPage}
-            />
         </div>
     );
 }

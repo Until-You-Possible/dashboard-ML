@@ -8,3 +8,16 @@
     font-style: italic;
     color: rgb(0, 127, 255);
 }
+
+.mainMenuText span {
+    font-weight: 700;
+}
+
+.factorsUsage {
+    display: flex;
+    align-items: center;
+}
+
+.factorsUsage p{
+   margin-left: 1rem;
+}
