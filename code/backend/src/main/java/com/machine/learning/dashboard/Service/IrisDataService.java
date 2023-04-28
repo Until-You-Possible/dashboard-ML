@@ -5,7 +5,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.machine.learning.dashboard.Model.IrisModel;
 import com.machine.learning.dashboard.Repository.IrisDataRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +15,10 @@ import java.util.List;
 @Service
 public class IrisDataService {
 
-    @Autowired
-    private IrisDataRepository irisDataRepository;
+    private final IrisDataRepository irisDataRepository;
+    public IrisDataService (IrisDataRepository irisDataRepository) {
+        this.irisDataRepository = irisDataRepository;
+    }
 
     public List<IrisModel> findAll() {
        return  irisDataRepository.findAll();
