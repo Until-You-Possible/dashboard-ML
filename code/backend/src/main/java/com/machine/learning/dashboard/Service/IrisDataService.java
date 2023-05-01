@@ -27,7 +27,8 @@ public class IrisDataService {
     public void insertIris() throws IOException {
 
         ObjectMapper objectMapper = new ObjectMapper();
-        List<IrisModel> irisModelList = objectMapper.readValue(new File("/Users/c5312072/Downloads/csvjson.json"), new TypeReference<List<IrisModel>>() {});
+        String tempPath = "/Users/wanggang/Desktop/test.json";
+        List<IrisModel> irisModelList = objectMapper.readValue(new File(tempPath), new TypeReference<List<IrisModel>>() {});
         try {
             irisDataRepository.saveAll(irisModelList);
         } catch (DataIntegrityViolationException e) {

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.tensorflow:tensorflow-core-api:linux-x86_64:0.4.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/tensorflow/tensorflow-core-api/0.4.0-SNAPSHOT/tensorflow-core-api-0.4.0-20211120.043619-569-linux-x86_64.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/tensorflow/tensorflow-core-api/0.4.0-SNAPSHOT/tensorflow-core-api-0.4.0-20211120.043619-569-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/tensorflow/tensorflow-core-api/0.4.0-SNAPSHOT/tensorflow-core-api-0.4.0-20211120.043619-569-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

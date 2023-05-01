@@ -7,6 +7,7 @@ import org.tensorflow.*;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
@@ -28,19 +29,31 @@ public class TestTensorflowController {
         Map<String, Object> map = new HashMap<>();
         map.put("name", "call py");
 
-        String pyPath = "/Users/c5312072/Desktop/test.py";
-        // 传入python的参数
-        String[] args = new String[] {"python3", pyPath, "111"};
+        String pyPath = "/Users/wanggang/Desktop/github/dashboard/dashboard-ML/code/python/index.py";
+
+        // Python解释器路径
+        String pythonPath = "/usr/bin/python3";
+
+        ProcessBuilder pb = new ProcessBuilder(pythonPath, pyPath);
+        Map<String, String> env = pb.environment();
+        env.put("PYTHONPATH", "/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages");
+
         try {
-            // 执行python文件，并传入参数
-            Process process = Runtime.getRuntime().exec(args);
-            // 获取python输出字符串作为输入流被java读取
-            BufferedReader in  = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            String actionString = in.readLine();
-            if (actionString != null) {
-                map.put("actionString", actionString);
+            Process process = pb.start();
+            // 获取Python进程的标准输出和标准错误输出
+            InputStream stdout = process.getInputStream();
+            InputStream stderr = process.getErrorStream();
+            // 将标准输出和标准错误输出分别读取并输出
+            BufferedReader stdoutReader = new BufferedReader(new InputStreamReader(stdout));
+            BufferedReader stderrReader = new BufferedReader(new InputStreamReader(stderr));
+            String line;
+            while ((line = stdoutReader.readLine()) != null) {
+                System.out.println(line);
             }
-            in.close();
+            while ((line = stderrReader.readLine()) != null) {
+                System.err.println(line);
+            }
+            // in.close();
             process.waitFor();
 
         } catch (IOException | InterruptedException e) {

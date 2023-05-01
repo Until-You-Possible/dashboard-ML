@@ -8,12 +8,16 @@ import SearchIcon from '@mui/icons-material/Search';
 
 function ContentHeader() {
 
+    const handleGithub = () => {
+        window.open("https://github.com/Until-You-Possible/dashboard-ML", "_blank");
+    }
+
     return (
         <div className="ContentHeaderContainer">
             <Button variant="outlined" className="search-button-wrapper" startIcon={<SearchIcon />}>
                 How can I assist you today?
             </Button>
-            <IconButton className="icon-button-outline">
+            <IconButton onClick={() => handleGithub()} className="icon-button-outline">
                 <GitHubIcon />
             </IconButton>
             <IconButton className="icon-button-outline">
